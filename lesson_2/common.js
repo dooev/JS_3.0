@@ -25,21 +25,22 @@ if (time > 8 && time < 20) {
 // Вывод дневного бюджета START
 let dayMoney = (mainList.budget / 30);
 alert("Бюджет на один день около  " + Math.round(dayMoney) + "руб"); // добавил обнуление
-document.write("Бюджет на один день около  " + Math.round(dayMoney) + "руб")
+document.write("Бюджет на один день около  " + Math.round(dayMoney) + 'руб<br/>')
 // Вывод дневного бюджета END
 
 
-// Решение из видеоурока START
+// Решение из видеоурока START + задание Ивана
 
-for(let i = 0; i<3; i++) {
+for(let i = 0; i<5; i++) {
 	let a = prompt("Какой тип товаров будем продавать?");
-	if ((typeof(a)) === 'string' && (typeof(a)) != null //ошибочка тут должно быть != вместо === 
-		&& a != "" && a.length < 50 ) {
+	if ((typeof(a)) === 'string' && (typeof(a)) != null && a != "" && a.length < 50 ) {
+		mainList.shopGoods.push(a);
 		console.log('Все верно, "'+a+'" подходит');
 		document.write('Все верно, "'+a+'" подходит<br/>');
 	} else {
-		console.log('Нечего не выйдет, все кончено!');
-		document.write('Нечего не выйдет, все кончено!<br/>');
+			a;
+			i--;
+			console.log('Нечего не получится, если вы не введете правельные данные.');
 		}
 };
 
@@ -51,16 +52,19 @@ for(let i = 0; i<3; i++) {
 // let i = 0;
 // while (i < 5) {
 // 	let a = prompt("Какой тип товаров будем продавать?");
-// 	if ((typeof(a)) === 'string' && (typeof(a)) != null && a != "" && a.length < 50 ) {
-// 			console.log('Все верно, "'+a+'" подходит');
-// 			document.write('Все верно, "'+a+'" подходит<br/>');
-// 	} else {
-// 		console.log('Нечего не выйдет, все кончено!');
-// 		document.write('Нечего не выйдет, все кончено!<br/>');
-// 	};
-// 	i++;
-// console.log(a);
 
+// 	if ((typeof(a)) === 'string' && (typeof(a)) != null && a != "" && a.length < 50 ) {
+// 		mainList.shopGoods.push(a);
+// 		console.log('Все верно, "'+a+'" подходит');
+// 		document.write('Все верно, "'+a+'" подходит<br/>');
+// 	} else {
+// 		a;
+// 		i--;
+// 		console.log('Нечего не получится, если вы не введете правельные данные');
+// 	};
+// 		i++;
+
+// 	console.log(a);
 // };
 
 // Мое решение 1 END
@@ -72,14 +76,15 @@ for(let i = 0; i<3; i++) {
 // do {
 // 	let a = prompt("Какой тип товаров будем продавать?");
 // 	if ((typeof(a)) === 'string' && (typeof(a)) != null	&& a != "" && a.length < 50 ) {
-// 			console.log('Все верно, "'+a+'" подходит');
-// 			document.write('Все верно, "'+a+'" подходит<br/>');
+// 		mainList.shopGoods.push(a);
+// 		console.log('Все верно, "'+a+'" подходит');
+// 		document.write('Все верно, "'+a+'" подходит<br/>');
 // 	} else {
-// 		console.log('Нечего не выйдет, все кончено!');
-// 		document.write('Нечего не выйдет, все кончено!<br/>');
+// 		console.log('Нечего не получится, если вы не введете правельные данные');
+// 		a;
+// 		i--;
 // 	};
 // 	i++;
-// console.log(a);
 // } while (i < 5) ;
 
 // Мое решение 2 END
