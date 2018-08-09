@@ -21,5 +21,5 @@ alert(mainList.shopGoods);
 // console.log(mainList);
 
 var i = (mainList.budget / 30);
-
-alert("Бюджет на один день " + i + "руб");
+if (true) {}
+alert("Бюджет на один день около  " + Math.round(i) + "руб");
