@@ -1,29 +1,46 @@
 let shopName,
-		budget,
+		monthMoney,
+		dayMoney,
  		time,
  		prise
 
-function start () {
-	shopName = prompt("Название Вашего магазина?").toUpperCase();
-	while (!isNaN(shopName) || shopName == "" || shopName == null) {
-		shopName = prompt("Название Вашего магазина?").toUpperCase();
-	};
-	budget = prompt("Ваш месячный бюджет?");
-	while (isNaN(budget) || budget == "" || budget == null) {
-		budget = prompt("Ваш месячный бюджет?");
-	};
-};
-
-start();
-
 mainList = {
 	shopName: shopName,
-	budget: budget,
+	monthMoney: monthMoney,
 	shopGoods: [],
 	employers: {},
 	open: false,
 	discount: true
 };
+
+/*ФУНКЦИИ START*/
+// Название магазина SRART
+function start () {
+	shopName = prompt("Название Вашего магазина?").toUpperCase();
+	while (!isNaN(shopName) || shopName == "" || shopName == null) {
+		shopName = prompt("Название Вашего магазина?").toUpperCase();
+	};
+};
+
+start();
+// Название магазина END
+
+
+// Рабочие часы START
+function workTime(time) {
+	if (time > 8 && time < 20) {
+		document.write('Магазин " '+shopName+' " открыт! <br>')
+	} else if(time < 24){
+		document.write('Мы уже закрыты!<br>')
+		} else if (time < 8) {
+			document.write('Мы еще не открылись!<br>')
+			} else {
+				document.write('Это невозможно!<br>')
+				}
+};
+workTime(18);
+// Рабочие часы END
+
 
 // Дисконт START
 function discountSistem(prise) {
@@ -43,7 +60,6 @@ function newEmploer(){
 			mainList.employers['employer_' +i] = a;
 			console.log('Новый сотрудник "'+a+'" добавлен');
 		} else {
-				a;
 				i--;
 				console.log('Нечего не получится, если вы не введете правельные данные.');
 			}
@@ -52,29 +68,25 @@ function newEmploer(){
 newEmploer();
 // Emploers END
 
-// Рабочие часы START
-function workTime(time) {
-	if (time > 8 && time < 20) {
-		document.write('Магазин " '+shopName+' " открыт! <br>')
-	} else if(time < 24){
-		document.write('Мы уже закрыты!<br>')
-		} else if (time < 8) {
-			document.write('Мы еще не открылись!<br>')
-			} else {
-				document.write('Это невозможно!<br>')
-				}
+// Бюджет START
+function budget() {
+
+	for (var i = 0; i < 1; i++) {
+		monthMoney = prompt("Ваш месячный бюджет?");
+		if (isNaN(monthMoney) || monthMoney == "" || monthMoney == null) {
+			i--;
+		} else {
+				dayMoney = (monthMoney / 30);
+				alert("Бюджет на один день около  " + Math.round(dayMoney) + "руб"); // добавил обнуление
+				document.write("Бюджет на один день около  " + Math.round(dayMoney) + 'руб<br/>')			
+			}
+	};	
 };
-workTime(18);
-// Рабочие часы END
-
-// Вывод дневного бюджета START
-let dayMoney = (mainList.budget / 30);
-alert("Бюджет на один день около  " + Math.round(dayMoney) + "руб"); // добавил обнуление
-document.write("Бюджет на один день около  " + Math.round(dayMoney) + 'руб<br/>')
-// Вывод дневного бюджета END
+budget();
+// Бюджет END
 
 
-// Решение из видеоурока START
+// Выбор товара START
 function chooseGoods() {
 	for(let i = 0; i<5; i++) {
 		let a = prompt("Какой тип товаров будем продавать?");
@@ -83,12 +95,12 @@ function chooseGoods() {
 			console.log('Все верно, "'+a+'" подходит');
 			document.write('Все верно, "'+a+'" подходит<br/>');
 		} else {
-				a;
 				i--;
 				console.log('Нечего не получится, если вы не введете правельные данные.');
 			}
 	}
 };
 chooseGoods();
-// Решение из видеоурока END
+//  Выбор товара END
+/*ФУНКЦИИ END*/
 
