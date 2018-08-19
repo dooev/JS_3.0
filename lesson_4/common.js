@@ -118,6 +118,7 @@ mainList = {
 											
 									},
 
+// проверка массива на пустые значения 
 		arrIsGood: function arrIsGood(arr) {
 		let count = arr.length;
 		let goodArr = [];
@@ -135,7 +136,7 @@ mainList = {
 // 3) Используя цикл for in для объекта START
 	weHave: function weHave() { 
 						for (let key in mainList) {
-						 console.info("Наш магазин включает в себя раздел: " + key + ", в котором лежит: " + mainList[key] );
+						 console.info("Наш магазин включает в себя разделы: " + key );
 						}
 					}
 // 3) Используя цикл for in для объекта END
