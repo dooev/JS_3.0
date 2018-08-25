@@ -122,9 +122,10 @@ countBudgeBtn.addEventListener('click', () => {
 EmployersBtn.addEventListener('click', () => {
  	for (var i = 0; i < 3; i++) {
  			let a = hireEmployersEtemS[i].value;
- 			mainList.employers[i] = a;
-		 	employersValue.textContent += mainList.employers[i] + ', ';
-
+ 			if (a !== '') {
+ 				mainList.employers[i] = a;
+		 		employersValue.textContent += mainList.employers[i] + ', ';
+		 	}
  	}
 });
 // Имена сотрудников END
@@ -163,7 +164,6 @@ open.addEventListener('click', () => {
 // Дисконт END
 
 if (mainList.open == false){
-	open.setAttribute("disabled","");
 	goodsItemBtn.setAttribute("disabled","");
 	countBudgeBtn.setAttribute("disabled","");
 	EmployersBtn.setAttribute("disabled",""); 
