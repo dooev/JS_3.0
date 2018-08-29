@@ -139,83 +139,98 @@ window.addEventListener('DOMContentLoaded', ()=> {
 		 btnFooter = formFooter.getElementsByTagName('button')[0],
 		 inputFooter = formFooter.getElementsByTagName('input'),
 		 inputS = [inputPopup, inputFooter[0], inputFooter[1]],
-		 statusMessage = document.createElement('div');
+		 statusMessage = document.createElement('div'),
+		 statusMessageLoad = document.createElement('IMG'),
+		 statusMessageOk = document.createElement('IMG');
+		 statusMessageLoad.classList.add('status-img');
+		 statusMessageOk.classList.add('status-img');
+		 statusMessageLoad.src = "img/ajax-loader.GIF";
+		 statusMessageOk.src = "img/success.SVG";
 		 statusMessage.classList.add('status');
+	
 
 	let status = new Object();
-		 status.ok = "Заявка получена, мы перезвоним Вам в течении 10 минут";
-		 status.load = "Загрузка...";
+		 status.ok = ` Заявка получена, мы перезвоним Вам в течении 10 минут`;
+		 status.load = ` Загрузка...`;
 		 status.fail = "Что то пошло не так... Отправьте форму еще раз, пожалуйста";
 
 	formPopup.addEventListener('submit', function(event) {
 		event = event.preventDefault();
-		formPopup.appendChild(statusMessage);
 
 
-	let request1 = new XMLHttpRequest();
-	request1.open('POST', 'server.php');
+		let request1 = new XMLHttpRequest();
+		request1.open('POST', 'server.php');
 
-	request1.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
-	
-	let FormData1 = new FormData(formFooter);
+		request1.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
+		
+		let FormData1 = new FormData(formFooter);
 
-	request1.send(FormData1);
-	
-
-	request1.onreadystatechange = function() {
-		if (request1.readyState < 4) {
-			statusMessage.innerHTML = status.load;
-		} else if (request1.readyState === 4) {
-			if (request1.status == 200 && request1.status < 300) {// коды ошибок
-				statusMessage.innerHTML = status.ok;
-			} else {
-				statusMessage.innerHTML = status.fail;
-				}
-		};
-	};	
-			console.log("request1.readyState", request1.readyState);
+		request1.send(FormData1);
 		
 
-
-
-
-	for (var i = 0; i < inputS.length; i++) {
-		inputS[i].value = ''; // очищаем поля ввода
-	}
+		request1.onreadystatechange = function() {
+			if (request1.readyState < 4) {
+				formPopup.appendChild(statusMessageLoad);
+				formPopup.appendChild(statusMessage);
+				statusMessage.innerHTML = status.load;
+			} else if (request1.readyState === 4) {
+				if (request1.status == 200 && request1.status < 300) {// коды ошибок
+				formPopup.removeChild(statusMessageLoad);
+				formPopup.removeChild(statusMessage);
+				formPopup.appendChild(statusMessageOk);
+				formPopup.appendChild(statusMessage);
+				statusMessage.innerHTML = status.ok;
+					
+				} else {
+					formPopup.removeChild(statusMessageLoad);
+					formPopup.removeChild(statusMessageOk);
+					statusMessage.innerHTML = status.fail;
+					}
+			};
+		};	
+			
+		for (var i = 0; i < inputS.length; i++) {
+			inputS[i].value = ''; // очищаем поля ввода
+		}
 	});
 
-		formFooter.addEventListener('submit', function(event) {
+	formFooter.addEventListener('submit', function(event) {
 		event = event.preventDefault();
-		formFooter.appendChild(statusMessage);
-	
 
+		let request2 = new XMLHttpRequest();
 
-	let request2 = new XMLHttpRequest();
+		request2.open('POST', 'server.php');
 
-	request2.open('POST', 'server.php');
+		request2.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
 
-	request2.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
+		let FormData2 = new FormData(formPopup);
 
-	let FormData2 = new FormData(formPopup);
+		request2.send(FormData2);
 
-	request2.send(FormData2);
-
-	request2.onreadystatechange = function() {
-		if (request2.readyState < 4) {
-			statusMessage.innerHTML = status.load;
-		} else if (request2.readyState === 4) {
-			if (request2.status == 200 && request2.status < 300) {// коды ошибок
-				statusMessage.innerHTML = status.ok;
-			} else {
-				statusMessage.innerHTML = status.fail;
-				}
+		request2.onreadystatechange = function() {
+			if (request2.readyState < 4) {
+				formFooter.appendChild(statusMessageLoad);
+				formFooter.appendChild(statusMessage);
+				statusMessage.innerHTML = status.load;
+			} else if (request2.readyState === 4) {
+				if (request2.status == 200 && request2.status < 300) {// коды ошибок
+					formFooter.removeChild(statusMessageLoad);
+					formFooter.removeChild(statusMessage);
+					formFooter.appendChild(statusMessageOk);
+					formFooter.appendChild(statusMessage);
+					statusMessage.innerHTML = status.ok;
+				} else {
+					formFooter.removeChild(statusMessageLoad);
+					formFooter.removeChild(statusMessageOk);
+					statusMessage.innerHTML = status.fail;
+					}
+			};
 		};
-	};
 
 
-	for (var i = 0; i < inputS.length; i++) {
-		inputS[i].value = ''; // очищаем поля ввода
-	}
+		for (var i = 0; i < inputS.length; i++) {
+			inputS[i].value = ''; // очищаем поля ввода
+		}
 
 
 	});
