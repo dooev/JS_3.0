@@ -1,11 +1,11 @@
 class options {
 	constructor(height, width, margin, bg, fontSize, textAlign) {
-		this.height = `height: ${height}px;`;
-		this.width = `width: ${width}px;`;
-		this.margin = `margin: ${margin};`
-		this.bg = `background: ${bg};`;
-		this.fontSize = `font-size: ${fontSize}px;`;
-		this.textAlign = `text-align: ${textAlign};`;
+		this.height = height;
+		this.width = width;
+		this.margin = margin;
+		this.bg = bg;
+		this.fontSize = fontSize;
+		this.textAlign = textAlign;
 		
 	}
 	styleDiv () {
@@ -15,7 +15,7 @@ class options {
 			console.log("newDiv", newDiv);
 			newDiv.innerHTML = a;
 			console.log("newDiv+a", newDiv);
-			newDiv.style.cssText = `${this.width} ${this.height} ${this.margin} ${this.bg} ${this.fontSize} ${this.textAlign}`;
+			newDiv.style.cssText = `height: ${height}px; width: ${width}px; margin: ${margin}; background: ${bg}; font-size: ${fontSize}px; text-align: ${textAlign};`;
 			console.log("this", this);
 			console.log("newDiv+this", newDiv);
 

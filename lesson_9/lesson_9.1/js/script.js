@@ -97,16 +97,46 @@ window.addEventListener('DOMContentLoaded', function(){
 		document.body.style.overflow = 'hidden';
 	});
 
-	for (var i = 0; i < moreTab.length; i++) {
-		moreTab[i].addEventListener('click', function(){
-			if (this.classList == 'description-btn') {
-				// this.classList.add('more-splash');
-				overlay.style.display = 'block';
-				document.body.style.overflow = 'hidden';
-			}
 
-		});
-	}
+
+
+
+
+	// for (var i = 0; i < moreTab.length; i++) {
+	// 	info.addEventListener('click', function(event){
+	// 		console.log("event", event);
+	// 		let target = event.target;
+	// 		console.log("target", target);
+	// 			console.log("target.classList", target.classList);
+
+	// 		if (target.classList == 'description-btn') {
+	// 			// this.classList.add('more-splash');
+	// 			overlay.style.display = 'block';
+	// 			document.body.style.overflow = 'hidden';
+	// 		}
+
+	// 	});
+	// }
+
+
+
+	info.addEventListener('click', function(event) {
+					// console.log("event", event);
+			let target = event.target;
+			// console.log("target", target);
+				// console.log("target.classList", target.classList);
+		if (target.className == 'description-btn') {
+			// this.classList.add('more-splash');
+			overlay.style.display = 'block';
+			document.body.style.overflow = 'hidden';
+		}
+	});
+
+
+
+
+
+
 
 
 	close.addEventListener('click', function(){

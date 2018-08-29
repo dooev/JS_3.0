@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 		 close = document.querySelector('.popup-close'),
 		 moreTab = document.querySelectorAll('.description-btn');
 	
-	more.addEventListener('click', () => {
+	more.addEventListener('click', function() {
 		this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
