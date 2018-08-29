@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 */
 	let formPopup = document.getElementsByClassName('main-form')[0],
 		 btnPopup = document.getElementsByClassName('popup-form__btn')[0],
-		 inputPopup = formPopup.getElementsByTagName('input')[0],
+		 inputPopup = formPopup.getElementsByTagName('input'),
 		 formFooter = document.getElementById('form'),
 		 btnFooter = formFooter.getElementsByTagName('button')[0],
 		 inputFooter = formFooter.getElementsByTagName('input'),
@@ -143,48 +143,84 @@ window.addEventListener('DOMContentLoaded', ()=> {
 		 statusMessage.classList.add('status');
 
 	let status = new Object();
-		 status.ok = "Заявка получена, мы скоро перезвоним";
+		 status.ok = "Заявка получена, мы перезвоним Вам в течении 10 минут";
 		 status.load = "Загрузка...";
 		 status.fail = "Что то пошло не так... Отправьте форму еще раз, пожалуйста";
 
-	formPopup.addEventListener('submit', (event) =>{
+	formPopup.addEventListener('submit', function(event) {
 		event = event.preventDefault();
-		form.appendChild(statusMessage);
-	});
+		formPopup.appendChild(statusMessage);
 
-	formFooter.addEventListener('submit', (event) =>{
-		event = event.preventDefault();
-		form.appendChild(statusMessage);
-		
-	});
 
-	let request = new XMLHttpRequest();
-	request.open('POST', 'server.php');
+	let request1 = new XMLHttpRequest();
+	request1.open('POST', 'server.php');
 
-	request.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
+	request1.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
 	
 	let FormData1 = new FormData(formFooter);
-	let FormData2 = new FormData(formPopup);
 
-	request.send(FormData1);
-	request.send(FormData2);
+	request1.send(FormData1);
+	
 
-	request.statusFunc = () =>{
-		if (request.readyState < 4) {
-			status.innerHTML = status.loading;
-		} else if (request.readyState === 4) {
-			if (request.status == 200 && request.status < 300) {
-				status.innerHTML = status.ok;
-			}
-			else {
-				status.innerHTML = status.fail;
-			}
-		}
-	};
+	request1.onreadystatechange = function() {
+		if (request1.readyState < 4) {
+			statusMessage.innerHTML = status.load;
+		} else if (request1.readyState === 4) {
+			if (request1.status == 200 && request1.status < 300) {// коды ошибок
+				statusMessage.innerHTML = status.ok;
+			} else {
+				statusMessage.innerHTML = status.fail;
+				}
+		};
+	};	
+			console.log("request1.readyState", request1.readyState);
+		
+
+
+
 
 	for (var i = 0; i < inputS.length; i++) {
 		inputS[i].value = ''; // очищаем поля ввода
 	}
+	});
+
+		formFooter.addEventListener('submit', function(event) {
+		event = event.preventDefault();
+		formFooter.appendChild(statusMessage);
+	
+
+
+	let request2 = new XMLHttpRequest();
+
+	request2.open('POST', 'server.php');
+
+	request2.setRequestHeader('Content-Type', 'application/x-www-form-unlencoded');
+
+	let FormData2 = new FormData(formPopup);
+
+	request2.send(FormData2);
+
+	request2.onreadystatechange = function() {
+		if (request2.readyState < 4) {
+			statusMessage.innerHTML = status.load;
+		} else if (request2.readyState === 4) {
+			if (request2.status == 200 && request2.status < 300) {// коды ошибок
+				statusMessage.innerHTML = status.ok;
+			} else {
+				statusMessage.innerHTML = status.fail;
+				}
+		};
+	};
+
+
+	for (var i = 0; i < inputS.length; i++) {
+		inputS[i].value = ''; // очищаем поля ввода
+	}
+
+
+	});
+
+
 });
 
 
