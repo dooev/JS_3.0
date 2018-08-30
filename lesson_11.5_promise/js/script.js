@@ -1,3 +1,4 @@
+https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js
 window.addEventListener('DOMContentLoaded', ()=> {
 
 	let info = document.getElementsByClassName('info-header')[0],
