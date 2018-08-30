@@ -1,8 +1,9 @@
 window.addEventListener('DOMContentLoaded', function(){
 
 	let info = document.getElementsByClassName('info-header')[0],
-			tab = document.getElementsByClassName('info-header-tab'),
-			tabContent = document.getElementsByClassName('info-tabcontent');
+		 infoBlock = document.getElementsByClassName('info')[0],
+		 tab = document.getElementsByClassName('info-header-tab'),
+		 tabContent = document.getElementsByClassName('info-tabcontent');
 
 	function hideTabContent(a) {
 		for (var i = a; i < tabContent.length; i++) {
@@ -97,47 +98,16 @@ window.addEventListener('DOMContentLoaded', function(){
 		document.body.style.overflow = 'hidden';
 	});
 
-
-
-
-
-
-	// for (var i = 0; i < moreTab.length; i++) {
-	// 	info.addEventListener('click', function(event){
-	// 		console.log("event", event);
-	// 		let target = event.target;
-	// 		console.log("target", target);
-	// 			console.log("target.classList", target.classList);
-
-	// 		if (target.classList == 'description-btn') {
-	// 			// this.classList.add('more-splash');
-	// 			overlay.style.display = 'block';
-	// 			document.body.style.overflow = 'hidden';
-	// 		}
-
-	// 	});
-	// }
-
-
-
-	info.addEventListener('click', function(event) {
-					// console.log("event", event);
+		infoBlock.addEventListener('click', function(event){
 			let target = event.target;
-			// console.log("target", target);
-				// console.log("target.classList", target.classList);
-		if (target.className == 'description-btn') {
-			// this.classList.add('more-splash');
-			overlay.style.display = 'block';
-			document.body.style.overflow = 'hidden';
-		}
-	});
 
+			if (target.classList == 'description-btn') {
+				// this.classList.add('more-splash');
+				overlay.style.display = 'block';
+				document.body.style.overflow = 'hidden';
+			}
 
-
-
-
-
-
+		});
 
 	close.addEventListener('click', function(){
 		overlay.style.display = 'none';
