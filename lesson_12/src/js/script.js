@@ -265,9 +265,9 @@ window.addEventListener('DOMContentLoaded', function () {
 	totalValue.innerHTML = 0;
 
 	persons.addEventListener('change', function () {
-		// почему обработчик не срабатывает если я первым ввожу "е" или "+" ?
-		var a = persons.value.replace(/[e+A-Za-zА-Яа-я]/gi, '' /*   /^(?!0.*$)(?!\+$)(?!e$)(?!,$)(?!\.$)([0-9]{1,4})$/  */);
-		persons.value = a; //почему не работает большое условное выражение, оно вроде отвечает всем требованиям (сделал на генираторе)
+		// почему обработчик не срабатывает если input type=number и я первым ввожу "е" или "+" ?
+		var a = persons.value.replace(/[\>\<\[\]\{\}\/\|\\':;`~"e+A-Za-zА-Яа-я!@#$%^&*()_=.,?-]/gi, '' );
+		persons.value = a; 
 		personsSum = +this.value;
 		total = (daysSum + personsSum) * 4000;
 
@@ -279,10 +279,10 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 
 	restDays.addEventListener('change', function () {
-		// почему обработчик не срабатывает если я первым ввожу "е" или "+" ?
+		// почему обработчик не срабатывает если input type=number и я первым ввожу "е" или "+" ?
 		console.log("restDays.value", restDays.value);
-		var a = restDays.value.replace(/[e+A-Za-zА-Яа-я]/gi, '' /*   /^(?!0.*$)(?!\+$)(?!e$)(?!,$)(?!\.$)([0-9]{1,4})$/  */);
-		restDays.value = a; //почему не работает большое условное выражение, оно вроде отвечает всем требованиям (сделал на генираторе)
+		var a = restDays.value.replace(/[\>\<\[\]\{\}\/\|\\':;`~"e+A-Za-zА-Яа-я!@#$%^&*()_=.,?-]/gi, '' );
+		restDays.value = a; 
 
 		daysSum = +this.value;
 		total = (daysSum + personsSum) * 4000;
