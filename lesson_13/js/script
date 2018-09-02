@@ -1,0 +1,5 @@
+$(document).ready(function(){ // при загрузке страницы
+	$('.main_btna','.main_btn', li:eq(1)).on('click', function(){
+		$('.modal').css('display', block);
+	})
+});
