@@ -55,7 +55,7 @@
 			var status = new Object();
 			status.ok = " \u0417\u0430\u044F\u0432\u043A\u0430 \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0430, \u043C\u044B \u043F\u0435\u0440\u0435\u0437\u0432\u043E\u043D\u0438\u043C \u0412\u0430\u043C \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0438 10 \u043C\u0438\u043D\u0443\u0442";
 			status.load = " \u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...";
-			status.fail = "Что то пошло не так... Отправьте форму еще раз, пожалуйста";
+			status.fail = "Что пошло не так... Отправьте форму еще раз, пожалуйста";
 
 			var toServer = {
 				// Создаем объект с методом отправки данных на сервер
@@ -63,7 +63,6 @@
 					var _this = this;
 
 					// В качестве аргумента передаем контекст вызова
-
 					event = event.preventDefault();
 					var formData = new FormData(this);
 
@@ -141,26 +140,25 @@
 				var a = persons.value.replace(/[\>\<\[\]\{\}\/\|\\':;`~"e+A-Za-zА-Яа-я!@#$%^&*()_=.,?-]/gi, '');
 				persons.value = a;
 				personsSum = +this.value;
-				total = (daysSum + personsSum) * 4000;
 
-				if (restDays.value == "") {
+				if (restDays.value == "" || restDays.value == 0 || restDays.value == " " || persons.value == "" || persons.value == 0 || persons.value == " " ) {
 					totalValue.innerHTML = 0;
 				} else {
+					total = (daysSum + personsSum) * 4000;
 					totalValue.innerHTML = total;
 				}
 			});
 
 			restDays.addEventListener('change', function () {
 				// почему обработчик не срабатывает если input type=number и я первым ввожу "е" или "+" ?
-				console.log("restDays.value", restDays.value);
 				var a = restDays.value.replace(/[\>\<\[\]\{\}\/\|\\':;`~"e+A-Za-zА-Яа-я!@#$%^&*()_=.,?-]/gi, '');
 				restDays.value = a;
 
 				daysSum = +this.value;
-				total = (daysSum + personsSum) * 4000;
-				if (persons.value == "") {
+				if (persons.value == "" || persons.value == 0 || persons.value == " " || restDays.value == "" || restDays.value == 0 || restDays.value == " ") {
 					totalValue.innerHTML = 0;
 				} else {
+					total = (daysSum + personsSum) * 4000;
 					totalValue.innerHTML = total;
 				}
 			});
@@ -184,7 +182,7 @@
 			    moreTab = document.querySelectorAll('.description-btn');
 
 			more.addEventListener('click', function () {
-				undefined.classList.add('more-splash');
+				this.classList.add('more-splash');
 				overlay.style.display = 'block';
 				document.body.style.overflow = 'hidden';
 			});

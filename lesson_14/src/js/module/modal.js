@@ -5,7 +5,7 @@ function modal() {
 	    moreTab = document.querySelectorAll('.description-btn');
 
 	more.addEventListener('click', function () {
-		undefined.classList.add('more-splash');
+		this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
 	});
