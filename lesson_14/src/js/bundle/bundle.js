@@ -164,7 +164,7 @@
 			});
 
 			place.addEventListener('change', function () {
-				if (restDays.value == "" || persons.value == "") {
+				if (persons.value == "" || persons.value == 0 || persons.value == " " || restDays.value == "" || restDays.value == 0 || restDays.value == " ") {
 					totalValue.innerHTML = 0;
 				} else {
 					var a = total;
