@@ -19,7 +19,7 @@ function calc() {
 		personsSum = +this.value;
 		total = (daysSum + personsSum) * 4000;
 
-		if (restDays.value == "") {
+		if (restDays.value == "" || restDays.value == 0 || restDays.value == " " || persons.value == "" || persons.value == 0 || persons.value == " " ) {
 			totalValue.innerHTML = 0;
 		} else {
 			totalValue.innerHTML = total;
@@ -28,13 +28,12 @@ function calc() {
 
 	restDays.addEventListener('change', function () {
 		// почему обработчик не срабатывает если input type=number и я первым ввожу "е" или "+" ?
-		console.log("restDays.value", restDays.value);
 		var a = restDays.value.replace(/[\>\<\[\]\{\}\/\|\\':;`~"e+A-Za-zА-Яа-я!@#$%^&*()_=.,?-]/gi, '' );
 		restDays.value = a; 
 
 		daysSum = +this.value;
 		total = (daysSum + personsSum) * 4000;
-		if (persons.value == "") {
+		if (persons.value == "" || persons.value == 0 || persons.value == " " || restDays.value == "" || restDays.value == 0 || restDays.value == " ") {
 			totalValue.innerHTML = 0;
 		} else {
 			totalValue.innerHTML = total;
@@ -42,7 +41,7 @@ function calc() {
 	});
 
 	place.addEventListener('change', function () {
-		if (restDays.value == "" || persons.value == "") {
+		if (persons.value == "" || persons.value == 0 || persons.value == " " || restDays.value == "" || restDays.value == 0 || restDays.value == " ") {
 			totalValue.innerHTML = 0;
 		} else {
 			var a = total;
