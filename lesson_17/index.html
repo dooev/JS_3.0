@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>lesson_17</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <!-- Для калькулятора -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <!-- fotorama.css -->
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <!-- Рисовашка -->
+  <link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/calc.css">
+  <link rel="stylesheet" href="css/draw.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- button --->
+  <div class="button">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+  <!-- navbar menu -->
+  <div class='menu'>
+    <nav>
+      <ul>
+        <li>
+          <a href='#' data-class='home_is_visible '>Слайдер</a>
+        </li>
+        <li>
+          <a href='#' data-class='aboutus_is_visible'>Калькулятор</a>
+        </li>
+        <li>
+          <a href='#' data-class='clients_is_visible'>Выключи свет!</a>
+        </li>
+        <li>
+          <a href='#' data-class='contactus_is_visible '>Рисование</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- content -->
+  <div class='content home'>
+    <div class="wrapper">
+      <h1>Слайдер</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="fotorama" data-width="100%" data-nav="thumbs" data-fit="contain" data-transition="slide" data-loop="true" data-autoplay="true">
+              <img src="https://pp.userapi.com/c626320/v626320404/d8f0/aTkjEghAuvE.jpg" data-caption="Родня">
+              <div><h2>Слайд с текстом</h2><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas officiis, similique quidem dignissimos quisquam mollitia debitis numquam optio fugiat nemo magni reiciendis recusandae odio rem sequi illum nam, quae quaerat.</em></div>
+              <img src="https://pp.userapi.com/c624325/v624325108/423cc/_jdFNxcYq6s.jpg" class="fotorama__img" data-caption="Друзья">
+              <a href="https://youtu.be/TRDXzQwJreg" data-caption="Мотивирующее видео"></a>
+              <img src="https://pp.userapi.com/c622317/v622317610/27e0d/63vwTeVqGsQ.jpg" class="fotorama__img" data-caption="Еще кореша">
+              <img src="https://pp.userapi.com/c1216/u1620801/38878433/x_c3bd1285.jpg" data-caption="Кушаем в Маке в 2008">
+              <a href="http://vimeo.com/61527416" data-caption="Просто Celestial Dynamics"></a>
+              <img src="https://pp.userapi.com/c47/u2115523/4060854/x_bae3001d92.jpg" data-caption="Кальян на крыше в 2007">
+              <img src="https://pp.userapi.com/c4686/u2144499/9593016/y_e41d66db.jpg" data-caption="Шлем на голове в 2006">
+              <img src="https://pp.userapi.com/c1440/u1620801/27948496/x_32a244df.jpg" data-caption="Тусамбэ в гараже в 2005">
+              <img src="https://pp.userapi.com/c1684/u1620801/33580620/x_d4ee72d3.jpg" data-caption="Пустые холмы ...2008 вроде">
+              <img src="https://pp.userapi.com/c1505/u2144499/29414697/x_4b3ec651.jpg" data-caption="ОпэнЭир в подмосковном лесу 2008">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='content aboutus'>
+    <div class="wrapper">
+      <h1>Калькулятор</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="warning">Don't divide by zero</p>
+            <div id="calculator" class="calculator">
+              <button id="clear" class="clear">C</button>
+              <div id="viewer" class="viewer">0</div>
+              <button class="num" data-num="7">7</button>
+              <button class="num" data-num="8">8</button>
+              <button class="num" data-num="9">9</button>
+              <button data-ops="plus" class="ops">+</button>
+              <button class="num" data-num="4">4</button>
+              <button class="num" data-num="5">5</button>
+              <button class="num" data-num="6">6</button>
+              <button data-ops="minus" class="ops">-</button>
+              <button class="num" data-num="1">1</button>
+              <button class="num" data-num="2">2</button>
+              <button class="num" data-num="3">3</button>
+              <button data-ops="times" class="ops">*</button>
+              <button class="num" data-num="0">0</button>
+              <button class="num" data-num=".">.</button>
+              <button id="equals" class="equals" data-result="">=</button>
+              <button data-ops="divided by" class="ops">/</button>
+            </div>
+            <button id="reset" class="reset">Reset Universe?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='content clients'>
+    <div class="wrapper">
+      <h1>Выключи свет!
+        <br> Что такой веселый?</h1>
+      <div class="wrapper1" id="bg">
+        <label>
+          <input type="checkbox" id="checker" name="check-guy" checked="checked" />
+          <div class="ht-ui-check" for="check-guy">
+            <div class="track">
+              <div class="inner"></div>
+            </div>
+            <div class="handle">
+              <div class="faces">
+                <div class="sad">
+                  <div class="eyes">
+                    <div>+ </div>
+                    <div>+</div>
+                  </div>
+                  <div class="mouth">—</div>
+                </div>
+                <div class="happy">
+                  <div class="eyes">
+                    ◠ ◠ </div>
+                  <div class="mouth"> <span>◗</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class='content contactus'>
+    <div class="wrapper">
+      <h1>Рисование</h1>
+      <div id="draw">
+        <div class="app-wrapper">
+          <canvas id="canvas">
+          </canvas>
+          <div class="cursor" id="cursor"></div>
+          <div class="controls">
+            <div class="btn-row">
+              <div class="history" title="history">
+                {{ history.length }}
+              </div>
+            </div>
+            <div class="btn-row">
+              <button type="button" v-on:click="removeHistoryItem" v-bind:class="{ disabled: !history.length }" title="Undo">
+                <i class="ion ion-reply"></i>
+              </button>
+              <button type="button" v-on:click="removeAllHistory" v-bind:class="{ disabled: !history.length }" title="Clear all">
+                <i class="ion ion-trash-a"></i>
+              </button>
+            </div>
+            <div class="btn-row">
+              <button title="Brush options" v-on:click="popups.showOptions = !popups.showOptions">
+                <i class="ion ion-android-create"></i>
+              </button>
+              <div class="popup" v-if="popups.showOptions">
+                <div class="popup-title">
+                  Options
+                </div>
+                <button title="Restrict movement vertical" v-on:click="options.restrictY = !options.restrictY; options.restrictX = false" v-bind:class="{ active: options.restrictY }" title="Restrict vertical">
+                  <i class="ion ion-arrow-right-c"></i> Restrict vertical
+                </button>
+                <button title="Restrict movement horizontal" v-on:click="options.restrictX = !options.restrictX; options.restrictY = false" v-bind:class="{ active: options.restrictX }" title="Restrict horizontal">
+                  <i class="ion ion-arrow-up-c"></i> Restrict horizontal
+                </button>
+                <button type="button" v-on:click="simplify" v-bind:class="{ disabled: !history.length }" title="Simplify paths">
+                  <i class="ion ion-wand"></i> Simplify paths
+                </button>
+                <button type="button" v-on:click="jumble" v-bind:class="{ disabled: !history.length }" title="Go nutz">
+                  <i class="ion ion-shuffle"></i> Go nutz
+                </button>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button title="Pick a brush size" v-on:click="popups.showSize = !popups.showSize" v-bind:class="{ active: popups.showSize }">
+                <i class="ion ion-android-radio-button-on"></i>
+                <span class="size-icon">
+            {{ size }}
+          </span>
+              </button>
+              <div class="popup" v-if="popups.showSize">
+                <div class="popup-title">
+                  Brush size
+                </div>
+                <label v-for="sizeItem in sizes" class="size-item">
+                  <input type="radio" name="size" v-model="size" v-bind:value="sizeItem">
+                  <span class="size" v-bind:style="{width: sizeItem + 'px', height: sizeItem + 'px'}" v-on:click="popups.showSize = !popups.showSize"></span>
+                </label>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button title="Pick a color" v-on:click="popups.showColor = !popups.showColor" v-bind:class="{ active: popups.showColor }">
+                <i class="ion ion-android-color-palette"></i>
+                <span class="color-icon" v-bind:style="{backgroundColor: color}">
+          </span>
+              </button>
+              <div class="popup" v-if="popups.showColor">
+                <div class="popup-title">
+                  Brush color
+                </div>
+                <label v-for="colorItem in colors" class="color-item">
+                  <input type="radio" name="color" v-model="color" v-bind:value="colorItem">
+                  <span v-bind:class="'color color-' + colorItem" v-bind:style="{backgroundColor: colorItem}" v-on:click="popups.showColor = !popups.showColor"></span>
+                </label>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button title="Save" v-on:click="popups.showSave = !popups.showSave">
+                <i class="ion ion-android-cloud-outline"></i>
+              </button>
+              <div class="popup" v-if="popups.showSave">
+                <div class="popup-title">
+                  Save your design
+                </div>
+                <div class="form">
+                  <input type="text" placeholder="Save name" v-model="save.name">
+                  <div v-if="save.name.length < 3" class="text-faded">
+                    <i>
+                Min 3 characters
+              </i>
+                  </div>
+                  <span class="btn" v-on:click="saveItem">
+              Save as
+              <span class="text-faded"> 
+                {{ save.name }}
+              </span>
+                  </span>
+                </div>
+                <div class="saves" v-if="save.saveItems.length">
+                  <div class="popup-title">
+                    Load a save
+                  </div>
+                  <div class="save-item" v-for="item in save.saveItems">
+                    <h3>{{ item.name }}</h3>
+                    <span class="btn" v-on:click="loadSave(item)">load</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button v-on:click="popups.showWelcome = true" title="Made by Lewi">
+                <i class="ion ion-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <!--  fotorama.js. -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+  <!-- Рисовалка -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js'></script>
+  <script src="js/calc.js"></script>
+  <script src="js/draw.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
